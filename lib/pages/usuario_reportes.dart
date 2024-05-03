@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 class reportes extends StatefulWidget {
   @override
@@ -14,11 +13,10 @@ class _reportes extends State<reportes> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Stack(
+      body: Stack(
           children: [Fondo(), Contenido()],
         ),
-      ),
+      
     );
   }
 }
@@ -33,7 +31,8 @@ class _ContenidoState extends State<Contenido> {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20),
-      child: Column(
+      child: SingleChildScrollView(
+        child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -51,6 +50,7 @@ class _ContenidoState extends State<Contenido> {
           Reporte(),
         ],
       ),
+      )
     );
   }
 }
@@ -129,7 +129,7 @@ class Horainicio extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 300,
+      width: 350,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -171,15 +171,15 @@ class _Seleccionminutos extends State<Seleccionminutos> {
                   ),
                   children: const [
                     Text('00'),
-                    Text('1'),
-                    Text('2'),
-                    Text('3'),
-                    Text('4'),
-                    Text('5'),
-                    Text('6'),
-                    Text('7'),
-                    Text('8'),
-                    Text('9'),
+                    Text('01'),
+                    Text('02'),
+                    Text('03'),
+                    Text('04'),
+                    Text('05'),
+                    Text('06'),
+                    Text('07'),
+                    Text('08'),
+                    Text('09'),
                     Text('10'),
                     Text('11'),
                     Text('12'),
@@ -266,15 +266,15 @@ class _Seleccionhora extends State<Seleccionhora> {
                     initialItem: 1,
                   ),
                   children: const [
-                    Text('1'),
-                    Text('2'),
-                    Text('3'),
-                    Text('4'),
-                    Text('5'),
-                    Text('6'),
-                    Text('7'),
-                    Text('8'),
-                    Text('9'),
+                    Text('01'),
+                    Text('02'),
+                    Text('03'),
+                    Text('04'),
+                    Text('05'),
+                    Text('06'),
+                    Text('07'),
+                    Text('08'),
+                    Text('09'),
                     Text('10'),
                     Text('11'),
                     Text('12'),
