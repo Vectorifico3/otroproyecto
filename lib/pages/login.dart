@@ -1,8 +1,12 @@
 // ignore_for_file: sort_child_properties_last, prefer_const_constructors, override_on_non_overriding_member, library_private_types_in_public_api, use_key_in_widget_constructors
 
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:otroproyecto/pages/usuario_controlador.dart';
+import 'package:http/http.dart' as http;
+import 'package:otroproyecto/pages/usuario_reportes.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -74,8 +78,17 @@ class _DatosState extends State<Datos> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+
+  List<Map<String, dynamic>> _data = [];
+
+  void initState() {
+    super.initState();
+    fetchData();
+  }
+
   @override
   bool obs = true;
+  bool admin = false;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -159,9 +172,18 @@ class _DatosState extends State<Datos> {
                 if (form.validate()) {
                   if ("a@a.com" == _emailController.text ||
                       "b@a.com" == _emailController.text) {
+                    admin = true;
                     Get.to(controlador());
-                  } else if (1 == 2) {
-                    /*implementacion del login de usuarios de soporte */
+                  } else if (admin == false) {
+                    int count = _data.length;
+                    for (int i = 0; i < count; i++) {
+                      if (_emailController.text ==
+                              _data[i]['email'].toString() &&
+                          _passwordController.text ==
+                              _data[i]['password'].toString()) {
+                        Get.to(() => reportes());
+                      }
+                    }
                   } else {
                     const snackBar = SnackBar(
                       content: Text('User or passwor nok'),
@@ -189,6 +211,18 @@ class _DatosState extends State<Datos> {
         color: Colors.white,
       ),
     );
+  }
+
+  Future<void> fetchData() async {
+    final response =
+        await http.get(Uri.parse('https://retoolapi.dev/ykEuYr/data'));
+    if (response.statusCode == 200) {
+      setState(() {
+        _data = List<Map<String, dynamic>>.from(json.decode(response.body));
+      });
+    } else {
+      throw Exception('fallo al cargarla informacion');
+    }
   }
 }
 
