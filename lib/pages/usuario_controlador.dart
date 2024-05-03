@@ -1,8 +1,12 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, sort_child_properties_last
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, sort_child_properties_last, library_private_types_in_public_api, camel_case_types, use_key_in_widget_constructors, avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:otroproyecto/pages/login.dart';
 
 class controlador extends StatefulWidget {
+  const controlador({super.key});
+
   @override
   _controlador createState() => _controlador();
 }
@@ -28,29 +32,33 @@ class _ContenidoState extends State<Contenido> {
   Widget build(BuildContext context) {
     return Container(
       child: Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20),
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Bienvenido, Seleccione que actividad desea realizar:',
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 30,
+        padding: EdgeInsets.symmetric(horizontal: 20),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              IconButton(
+                  onPressed: () {
+                    Get.off(()=>LoginPage());
+                  },
+                  icon: Icon(Icons.logout)),
+              Text(
+                'Bienvenido, Seleccione que actividad desea realizar:',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
+                ),
               ),
-            ),
-            SizedBox(
-              height: 5,
-            ),
-            Opciones(),
-          ],
-        ),        
-      ),      
-    ),
-
+              SizedBox(
+                height: 5,
+              ),
+              Opciones(),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
@@ -68,8 +76,11 @@ class _Opciones extends State<Opciones> {
       padding: EdgeInsets.all(20),
       child: Column(
         children: [
-          Text('administrar usuarios de soporte',
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20),),
+          Text(
+            'administrar usuarios de soporte',
+            style: TextStyle(
+                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20),
+          ),
           SizedBox(
             height: 5,
           ),
@@ -77,9 +88,11 @@ class _Opciones extends State<Opciones> {
           SizedBox(
             height: 5,
           ),
-
-          Text('administrar clientes',
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20),),
+          Text(
+            'administrar clientes',
+            style: TextStyle(
+                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20),
+          ),
           SizedBox(
             height: 5,
           ),
@@ -87,10 +100,11 @@ class _Opciones extends State<Opciones> {
           SizedBox(
             height: 5,
           ),
-
-
-          Text('evaluar reportes',
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20),),
+          Text(
+            'evaluar reportes',
+            style: TextStyle(
+                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20),
+          ),
           SizedBox(
             height: 5,
           ),
@@ -98,13 +112,12 @@ class _Opciones extends State<Opciones> {
           SizedBox(
             height: 5,
           ),
-
         ],
       ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: Colors.white,
-      ),      
+      ),
     );
   }
 }

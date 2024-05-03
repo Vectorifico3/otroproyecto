@@ -1,7 +1,6 @@
-// ignore_for_file: prefer_const_constructors, sort_child_properties_last
+// ignore_for_file: prefer_const_constructors, sort_child_properties_last, sized_box_for_whitespace, use_key_in_widget_constructors, camel_case_types, library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter/cupertino.dart';
 
 class reportes extends StatefulWidget {
@@ -153,8 +152,8 @@ class Seleccionminutos extends StatefulWidget {
 }
 
 class _Seleccionminutos extends State<Seleccionminutos> {
-  @override
   int _selectedvalue = 0;
+  @override
   Widget build(BuildContext context) {
     return CupertinoButton.filled(
       child: Text('Seleccione minuto: $_selectedvalue'),
@@ -249,8 +248,8 @@ class Seleccionhora extends StatefulWidget {
 }
 
 class _Seleccionhora extends State<Seleccionhora> {
-  @override
   int _selectedvalue = 0;
+  @override
   Widget build(BuildContext context) {
     return CupertinoButton.filled(
       child: Text('Seleccione hora: $_selectedvalue'),
