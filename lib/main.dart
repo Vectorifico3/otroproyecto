@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:otroproyecto/pages/login.dart';
+import 'package:otroproyecto/pages/usuario_controlador.dart';
 import 'package:otroproyecto/pages/usuario_reportes.dart';
 
 void main() {
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Material App',
       debugShowCheckedModeBanner: false,
-      home: reportes(),
+      home: controlador(),
     );
   }
 }
