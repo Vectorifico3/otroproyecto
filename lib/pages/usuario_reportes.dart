@@ -127,6 +127,7 @@ class Horainicio extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 300,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -134,10 +135,110 @@ class Horainicio extends StatelessWidget {
           SizedBox(
             height: 5,
           ),
+          Seleccionminutos(),
+          SizedBox(
+            height: 5,
+          ),
         ],
       ),
     );
   }
+}
+
+class Seleccionminutos extends StatefulWidget {
+  @override
+  State<Seleccionminutos> createState() => _Seleccionminutos();
+}
+
+class _Seleccionminutos extends State<Seleccionminutos> {
+  @override
+  int _selectedvalue = 0;
+  Widget build(BuildContext context) {
+    return CupertinoButton.filled(
+      child: Text('Seleccione minuto: $_selectedvalue'),
+      onPressed: () => showCupertinoModalPopup(
+          context: context,
+          builder: (_) => SizedBox(
+                width: double.infinity,
+                height: 250,
+                child: CupertinoPicker(
+                  backgroundColor: Colors.white,
+                  itemExtent: 24,
+                  scrollController: FixedExtentScrollController(
+                    initialItem: 1,
+                  ),
+                  children: const [
+                    Text('1'),
+                    Text('2'),
+                    Text('3'),
+                    Text('4'),
+                    Text('5'),
+                    Text('6'),
+                    Text('7'),
+                    Text('8'),
+                    Text('9'),
+                    Text('10'),
+                    Text('11'),
+                    Text('12'),
+                    Text('13'),
+                    Text('14'),
+                    Text('15'),
+                    Text('16'),
+                    Text('17'),
+                    Text('18'),
+                    Text('19'),
+                    Text('20'),
+                    Text('21'),
+                    Text('22'),
+                    Text('23'),
+                    Text('24'),
+                    Text('25'),
+                    Text('26'),
+                    Text('27'),
+                    Text('28'),
+                    Text('29'),
+                    Text('30'),
+                    Text('31'),
+                    Text('32'),
+                    Text('33'),
+                    Text('34'),
+                    Text('35'),
+                    Text('36'),
+                    Text('37'),
+                    Text('38'),
+                    Text('39'),
+                    Text('40'),
+                    Text('41'),
+                    Text('42'),
+                    Text('43'),
+                    Text('44'),
+                    Text('45'),
+                    Text('46'),
+                    Text('47'),
+                    Text('48'),
+                    Text('49'),
+                    Text('50'),
+                    Text('51'),
+                    Text('52'),
+                    Text('53'),
+                    Text('54'),
+                    Text('55'),
+                    Text('56'),
+                    Text('57'),
+                    Text('58'),
+                    Text('59'),
+                    Text('60'),
+                  ],
+                  onSelectedItemChanged: (int value) {
+                    setState(() {
+                      _selectedvalue = value+1;
+                    });
+                  },
+                ),
+              )),
+    );
+  }
+  
 }
 
 class Seleccionhora extends StatefulWidget {
