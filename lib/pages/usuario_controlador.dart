@@ -73,9 +73,17 @@ class _Opciones extends State<Opciones> {
           SizedBox(
             height: 5,
           ),
+          IconButton(onPressed: () {}, icon: Icon(Icons.settings)),
+          SizedBox(
+            height: 5,
+          ),
 
           Text('administrar clientes',
             style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20),),
+          SizedBox(
+            height: 5,
+          ),
+          IconButton(onPressed: () {}, icon: Icon(Icons.assignment_ind)),
           SizedBox(
             height: 5,
           ),
@@ -86,6 +94,11 @@ class _Opciones extends State<Opciones> {
           SizedBox(
             height: 5,
           ),
+          IconButton(onPressed: () {}, icon: Icon(Icons.trending_up)),
+          SizedBox(
+            height: 5,
+          ),
+
         ],
       ),
       decoration: BoxDecoration(
