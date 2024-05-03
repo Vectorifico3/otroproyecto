@@ -14,8 +14,10 @@ class _reportes extends State<reportes> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [Fondo(), Contenido()],
+      body: SingleChildScrollView(
+        child: Stack(
+          children: [Fondo(), Contenido()],
+        ),
       ),
     );
   }
@@ -168,6 +170,7 @@ class _Seleccionminutos extends State<Seleccionminutos> {
                     initialItem: 1,
                   ),
                   children: const [
+                    Text('00'),
                     Text('1'),
                     Text('2'),
                     Text('3'),
@@ -227,7 +230,6 @@ class _Seleccionminutos extends State<Seleccionminutos> {
                     Text('57'),
                     Text('58'),
                     Text('59'),
-                    Text('60'),
                   ],
                   onSelectedItemChanged: (int value) {
                     setState(() {
