@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:otroproyecto/pages/clientes.dart';
 import 'package:otroproyecto/pages/login.dart';
 
 class controlador extends StatefulWidget {
@@ -40,7 +41,7 @@ class _ContenidoState extends State<Contenido> {
             children: [
               IconButton(
                   onPressed: () {
-                    Get.off(()=>LoginPage());
+                    Get.off(() => LoginPage());
                   },
                   icon: Icon(Icons.logout)),
               Text(
@@ -75,6 +76,7 @@ class _Opciones extends State<Opciones> {
       width: double.infinity,
       padding: EdgeInsets.all(20),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             'administrar usuarios de soporte',
@@ -96,7 +98,11 @@ class _Opciones extends State<Opciones> {
           SizedBox(
             height: 5,
           ),
-          IconButton(onPressed: () {}, icon: Icon(Icons.assignment_ind)),
+          IconButton(
+              onPressed: () {
+                Get.to(() => Clientes());
+              },
+              icon: Icon(Icons.assignment_ind)),
           SizedBox(
             height: 5,
           ),

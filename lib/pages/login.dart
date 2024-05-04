@@ -1,7 +1,6 @@
 // ignore_for_file: sort_child_properties_last, prefer_const_constructors, override_on_non_overriding_member, library_private_types_in_public_api, use_key_in_widget_constructors
 
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:otroproyecto/pages/usuario_controlador.dart';
