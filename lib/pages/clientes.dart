@@ -1,7 +1,6 @@
 // ignore_for_file: use_key_in_widget_constructors, sort_child_properties_last, avoid_print
 
 import 'dart:convert';
-import 'dart:js';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
