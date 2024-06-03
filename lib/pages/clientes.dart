@@ -190,7 +190,7 @@ class _ContenidoClientes extends State<Contenidoclientes> {
     }
   }
 
-  Future<void> actualizarDatos(
+  Future<void> actualizarDatos( //Patch
       String idmodificar, String valormodificar) async {
     Map<String, dynamic> datosActualizados = {
       'id': idmodificar,
