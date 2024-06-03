@@ -104,41 +104,6 @@ class _ContenidoClientes extends State<Contenidoclientes> {
                   height: 5,
                 ),
                 OutlinedButton(
-                  key: const Key('ButtonIdModify'),
-                  onPressed: () {
-                    FocusScope.of(context).requestFocus(FocusNode());
-                    final form = _formKey.currentState;
-                    form!.save();
-                    if (form.validate()) {
-                      if (_idcontroller.text != '') {
-                        if (int.parse(_idcontroller.text) > 0 &&
-                            int.parse(_idcontroller.text) <= _data.length) {
-                        } else {
-                          const snackBar = SnackBar(
-                            content: Text('Enter a valid ID'),
-                          );
-                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                        }
-                      } else {
-                        const snackBar = SnackBar(
-                          content: Text('Please Enter an ID'),
-                        );
-                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                      }
-                    }
-                  },
-                  child: const Text(
-                    'Cambiar Id',
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                  style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(const Color(0xff142047)),
-                  ),
-                ),
-                OutlinedButton(
                   key: const Key('ButtonNameModify'),
                   onPressed: () {
                     FocusScope.of(context).requestFocus(FocusNode());
@@ -150,11 +115,7 @@ class _ContenidoClientes extends State<Contenidoclientes> {
                             int.parse(_idcontroller.text) <= _data.length) {
                           actualizarDatos(
                               _idcontroller.text, _datocontroller.text);
- /******************************************************************************
-  * 
-  
-  
-  ******* */                             
+                          Get.back();
                         } else {
                           const snackBar = SnackBar(
                             content: Text('Enter a valid ID'),
@@ -176,8 +137,8 @@ class _ContenidoClientes extends State<Contenidoclientes> {
                     ),
                   ),
                   style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(const Color(0xff142047)),
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                        const Color(0xff142047)),
                   ),
                 ),
                 /*Abajo la logica de la visualizacion de los clientes */
@@ -202,7 +163,7 @@ class _ContenidoClientes extends State<Contenidoclientes> {
                     return DataRow(
                       cells: [
                         DataCell(Text(data['id'].toString())),
-                        DataCell(Text(data['name'].toString())),
+                        DataCell(Text(data['nameCliente'].toString())),
                       ],
                     );
                   }).toList(),
@@ -219,7 +180,7 @@ class _ContenidoClientes extends State<Contenidoclientes> {
 
   Future<void> fetchData() async {
     final response =
-        await http.get(Uri.parse('https://retoolapi.dev/PQCTXu/data'));
+        await http.get(Uri.parse('https://retoolapi.dev/PrFnT6/clientes'));
     if (response.statusCode == 200) {
       setState(() {
         _data = List<Map<String, dynamic>>.from(json.decode(response.body));
@@ -233,11 +194,12 @@ class _ContenidoClientes extends State<Contenidoclientes> {
       String idmodificar, String valormodificar) async {
     Map<String, dynamic> datosActualizados = {
       'id': idmodificar,
-      'name': valormodificar
+      'nameCliente': valormodificar
     };
     String cuerposolicitud = json.encode(datosActualizados);
-    final response = await http.put(
-      Uri.parse('https://api-generator.retool.com/PQCTXu/data/1'),
+    final response = await http.patch(
+      Uri.parse(
+          'https://api-generator.retool.com/PrFnT6/clientes/$idmodificar'),
       headers: {'Content-Type': 'application/json'},
       body: cuerposolicitud,
     );
