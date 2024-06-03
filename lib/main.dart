@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:otroproyecto/pages/login.dart';
+import 'package:otroproyecto/pages/reportes.dart';
 import 'package:otroproyecto/pages/usuario_controlador.dart';
 import 'package:otroproyecto/pages/usuario_reportes.dart';
 import 'package:get/get.dart';

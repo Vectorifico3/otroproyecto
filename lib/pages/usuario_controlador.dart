@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:otroproyecto/pages/clientes.dart';
 import 'package:otroproyecto/pages/login.dart';
+import 'package:otroproyecto/pages/reportes.dart';
 
 class controlador extends StatefulWidget {
   const controlador({super.key});
@@ -114,7 +115,9 @@ class _Opciones extends State<Opciones> {
           SizedBox(
             height: 5,
           ),
-          IconButton(onPressed: () {}, icon: Icon(Icons.trending_up)),
+          IconButton(onPressed: () {
+            Get.to(() => CalReportes());
+          }, icon: Icon(Icons.trending_up)),
           SizedBox(
             height: 5,
           ),
